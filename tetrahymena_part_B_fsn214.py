@@ -14,4 +14,9 @@ group_mean= group_mean.reset_index()
 plt.xlabel('log_conc')
 plt.ylabel('log_diameter')
 cluster= ['^','o']
+sns.lmplot('log_conc','log_diameter',data= group_mean, fit_reg= False,hue= 'glucose',legend= False,markers= cluster)
+plt.legend() 
+plt.show()
+plt.savefig('tetrahymena_part_B_fsn214.pdf')
+
 
