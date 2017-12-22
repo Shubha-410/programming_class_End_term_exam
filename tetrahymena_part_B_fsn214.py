@@ -8,3 +8,6 @@ import seaborn as sns
 tetrahymena= pd.read_csv("tetrahymena.tsv", sep='\t')
 df= tetrahymena[(tetrahymena.diameter) > 19.2]
 group_mean= df.groupby(['culture','glucose'])['conc','diameter'].mean() 
+group_mean['log_conc']= np.log(group_mean.conc)
+group_mean['log_diameter']= np.log(group_mean.diameter) 
+
