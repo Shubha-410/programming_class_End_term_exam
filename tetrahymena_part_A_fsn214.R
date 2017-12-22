@@ -5,4 +5,6 @@ tetrahymena= filter(tetrahymena, !(diameter <= 19.2))
 tetrahymena= group_by(tetrahymena,culture,glucose) 
 tetrahymena= summarise(tetrahymena, mean_conc= mean(conc),mean_dia= mean(diameter))
 tetrahymena= mutate(tetrahymena, log_conc= log(mean_conc), log_diameter= log(mean_dia))
-
+pdf('tetrahymena_part_A_fsn214.pdf')
+ggplot(data= tetrahymena, aes(x= log_conc, y= log_diameter, color= glucose)) + geom_point()+ geom_smooth()   #plotting using ggplot
+a <- dev.off()
